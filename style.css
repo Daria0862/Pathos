@@ -1,0 +1,8 @@
+* {
+    background-color: pink;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+}
