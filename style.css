@@ -3,7 +3,7 @@
 }
 
 header {
-    font-family: 'Courier New', Courier, monospace ;
+    font-family: monospace ;
 }
 
 h1 {
@@ -18,4 +18,15 @@ h1 {
 .col-lg-12 {
     display: flex;
     justify-content: center;
+}
+
+#today {
+    border-radius: 25px;
+    border: 2px solid rgb(245, 222, 179);
+    padding: 20px;
+}
+
+#today2 {
+    border: 2px solid rgb(245, 222, 179);
+    padding: 20px;
 }
