@@ -1,5 +1,7 @@
 * {
-    background-color:rgb(233, 139, 132);
+    /* background-image: url("milky-way.jpg");
+    background-repeat: no-repeat;
+    background-size: cover; */
 }
 
 header {
@@ -7,11 +9,13 @@ header {
 }
 
 body {
-    background-image: url("WallpaperDog-996626.jpg")
+    background-image: url("milky-way.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 h1 {
-    color: black;
+    color: white;
 }
 
 .form {
