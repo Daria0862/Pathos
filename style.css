@@ -1,9 +1,13 @@
 * {
-    background-color:rgb(233, 139, 132)
+    background-color:rgb(233, 139, 132);
 }
 
 header {
     font-family: monospace ;
+}
+
+body {
+    background-image: url("WallpaperDog-996626.jpg")
 }
 
 h1 {
@@ -30,3 +34,4 @@ h1 {
     border: 2px solid rgb(245, 222, 179);
     padding: 20px;
 }
+
