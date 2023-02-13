@@ -1,20 +1,3 @@
-* {
-    /* background-image: url("milky-way.jpg");
-    background-repeat: no-repeat;
-    background-size: cover; */
-}
-
-button {
-    font-size: 1rem;
-    font-weight: 600;
-    padding: 0.5em;
-    color: white;
-    background-color: blue;
-    border: 10px solid yellow;
-    border-radius: 5px;
-    z-index: -1;
-    position: absolute;
-}
 
 header {
     font-family: monospace ;
@@ -42,12 +25,26 @@ h1 {
 
 #today {
     border-radius: 25px;
-    border: 2px solid rgb(245, 222, 179);
+    border: 2px solid rgb(186, 161, 133);
     padding: 20px;
 }
 
 #today2 {
-    border: 2px solid rgb(245, 222, 179);
+    border: 2px solid rgb(186, 161, 133);
     padding: 20px;
 }
 
+#search-button {
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.4em;
+    color: white;
+    background-color: gray;
+    border: 3px solid rgb(186, 161, 133);
+    border-radius: 5px;
+    position: relative;
+}
+
+#search-button:hover {
+    transform: translateY(-5px);
+}
