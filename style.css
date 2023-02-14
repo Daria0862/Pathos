@@ -1,13 +1,15 @@
-* {
-    background-color:rgb(233, 139, 132)
+header {
+    font-family: monospace;
 }
 
-header {
-    font-family: 'Courier New', Courier, monospace ;
+body {
+    background-image: url("milky-way.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 h1 {
-    color: black;
+    color: white;
 }
 
 .form {
@@ -18,5 +20,36 @@ h1 {
 .col-lg-12 {
     display: flex;
     justify-content: center;
+}
+
+
+#today {
+    border-radius: 25px;
+    padding: 20px;
+    background: rgb(222, 198, 186, .5);
+
+}
+
+#today2 {
+    padding: 20px;
+    border-radius: 25px;
+    background: rgb(222, 198, 186, .5);
+}
+
+#search-button {
+    font-size: 0.4cm;
+    font-family: monospace;
+    font-weight: 400;
+    margin: 3px;
+    padding: 5px;
+    color: white;
+    background-color: rgb(119, 129, 131);
+    border: 3px solid rgb(222, 198, 186);
+    border-radius: 5px;
+    position: relative;
+}
+
+#search-button:hover {
+    transform: translateY(-5px);
 }
 
