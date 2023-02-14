@@ -97,12 +97,15 @@ function getWeather(city) {
         console.log(response.weather[0].description);
 
 
-        let currentDate = moment().format("MM/DD/YYYY");
+        let currentDate = moment().format("DD/MM/YYYY");
         let icon = `https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png`;
         let temperature = response.main.temp - 273.15;
         temperature = temperature.toFixed(2);
         let humidity = response.main.humidity;
-        let windSpeed = response.wind.speed;
+        let weather = response.weather[0].description;
+        console.log (weather);
+        console.log (response);
+
 
         // Added card to hold the weather parameters
         $("#today").empty();
@@ -112,9 +115,9 @@ function getWeather(city) {
             <h4 class="text-left">${response.name} (${currentDate})  <img src="${icon}" /></h4>
             </div>
             <ul class="list-group list-group-flush" id="weatherList" >
-                <li class="list-group-item">Temperature:${temperature} &#8451;</li>
-                <li class="list-group-item">Humidity: ${humidity}%</li>
-                <li class="list-group-item">Wind Speed: ${windSpeed} MPH</li>
+                <li class="list-group-item">Temperature: ${temperature} &#8451;</li>
+                <li class="list-group-item">Description: ${weather}</li>
+                
             </ul>
         </div>
       `);
