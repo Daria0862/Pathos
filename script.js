@@ -1,92 +1,89 @@
 const APIController = (function () {
 
+    const clientId = '614d476329af4034b2a4806c49e5ec6b';
+    const clientSecret = 'fdc8bff4cb9a4932b8f364d74e60d2cd';
 
-    // private methods - The following paragraph of code has been taken from mujibsardar's github Repo on using Spotify with only jQuery
-    const _getToken = (sParam) => {
-        let sPageURL = window.location.search.substring(1),////substring will take everything after the https link and split the #/&
-            sURLVariables = sPageURL != undefined && sPageURL.length > 0 ? sPageURL.split('#') : [],
-            sParameterName,
-            i;
-        let split_str = window.location.href.length > 0 ? window.location.href.split('#') : [];
-        sURLVariables = split_str != undefined && split_str.length > 1 && split_str[1].length > 0 ? split_str[1].split('&') : [];
-        for (i = 0; i < sURLVariables.length; i++) {
-            sParameterName = sURLVariables[i].split('=');
-            if (sParameterName[0] === sParam) {
-                return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
-            }
-        }
-    };
+    // private methods
+    const _getToken = async () => {
 
+        const result = await fetch('https://accounts.spotify.com/api/token', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Authorization': 'Basic ' + btoa(clientId + ':' + clientSecret)
+            },
+            body: 'grant_type=client_credentials'
+        });
 
-    const token = _getToken('access_token');
-
-
-    let client_id = '614d476329af4034b2a4806c49e5ec6b';
-
-    let redirect_uri = 'https%3A%2F%2Fdaria0862.github.io%2Fpathos';
-
-    const redirect = `https://accounts.spotify.com/authorize?client_id=${client_id}&response_type=token&redirect_uri=${redirect_uri}`;
-    if (token == null || token == "" || token == undefined) {
-        window.location.replace(redirect);
+        const data = await result.json();
+        return data.access_token;
     }
 
-    const _getGenres = function (token) {
-        return $.ajax({
-            url: `https://api.spotify.com/v1/browse/categories?locale=sv_US`,
+    const _getGenres = async (token) => {
+
+        const result = await fetch(`https://api.spotify.com/v1/browse/categories?locale=sv_US`, {
             method: 'GET',
             headers: { 'Authorization': 'Bearer ' + token }
-        })
+        });
 
-    };
+        const data = await result.json();
+        return data.categories.items;
+    }
 
-    const _getPlaylistByGenre = function (token, genreId) {
+    const _getPlaylistByGenre = async (token, genreId) => {
+
         const limit = 10;
 
-        return $.ajax({
-            url: `https://api.spotify.com/v1/browse/categories/${genreId}/playlists?limit=${limit}`,
+        const result = await fetch(`https://api.spotify.com/v1/browse/categories/${genreId}/playlists?limit=${limit}`, {
             method: 'GET',
             headers: { 'Authorization': 'Bearer ' + token }
         });
-    };
 
-    const _getTracks = function (token, tracksEndPoint) {
+        const data = await result.json();
+        return data.playlists.items;
+    }
+
+    const _getTracks = async (token, tracksEndPoint) => {
+
         const limit = 10;
 
-        return $.ajax({
-            url: `${tracksEndPoint}?limit=${limit}`,
+        const result = await fetch(`${tracksEndPoint}?limit=${limit}`, {
             method: 'GET',
             headers: { 'Authorization': 'Bearer ' + token }
         });
-    };
 
-    const _getTrack = function (token, trackEndPoint) {
-        return $.ajax({
-            url: `${trackEndPoint}`,
+        const data = await result.json();
+        return data.items;
+    }
+
+    const _getTrack = async (token, trackEndPoint) => {
+
+        const result = await fetch(`${trackEndPoint}`, {
             method: 'GET',
             headers: { 'Authorization': 'Bearer ' + token }
         });
-    };
+
+        const data = await result.json();
+        return data;
+    }
 
     return {
-
-        getToken: function () {
+        getToken() {
             return _getToken();
         },
-        getGenres: function (token) {
+        getGenres(token) {
             return _getGenres(token);
         },
-        getPlaylistByGenre: function (token, genreId) {
+        getPlaylistByGenre(token, genreId) {
             return _getPlaylistByGenre(token, genreId);
         },
-        getTracks: function (token, tracksEndPoint) {
+        getTracks(token, tracksEndPoint) {
             return _getTracks(token, tracksEndPoint);
         },
-        getTrack: function (token, trackEndPoint) {
+        getTrack(token, trackEndPoint) {
             return _getTrack(token, trackEndPoint);
         }
-
     }
-
 })();
 
 function getWeather(city) {
@@ -148,6 +145,8 @@ $(document).ready(function () {
 });
 
 
+
+
 async function songSelect() {
     const token = await APIController.getToken();
     const genres = await APIController.getGenres(token);
@@ -160,7 +159,7 @@ async function songSelect() {
     const randomTrackIndex = Math.floor(Math.random() * tracks.length);
     const randomTrack = tracks[randomTrackIndex];
     const trackData = await APIController.getTrack(token, randomTrack.track.href);
-
+    console.log(trackData)
     const card = `
       <div class="card mb-3" style="max-width: 540px;">
         <div class="row no-gutters">
@@ -177,5 +176,5 @@ async function songSelect() {
       </div>
     `;
 
-    $("#music").html(card);
+    $("#today2").html(card);
 }
