@@ -107,14 +107,21 @@ function getWeather(city) {
         let humidity = response.main.humidity;
         let windSpeed = response.wind.speed;
 
+        // Added card to hold the weather parameters
         $("#today").empty();
         $("#today").append(`
-        <h2 class="text-left">${response.name} (${currentDate})  <img src="${icon}" /></h2>
-    
-        <p>Temperature:${temperature} &#8451;</p>
-        <p>Humidity: ${humidity}%</p>
-        <p>Wind Speed: ${windSpeed} MPH</p>
+        <div class="card" id="weatherCard" style="width: 18rem;>
+            <div class="card-header header">
+            <h4 class="text-left">${response.name} (${currentDate})  <img src="${icon}" /></h4>
+            </div>
+            <ul class="list-group list-group-flush" id="weatherList" >
+                <li class="list-group-item">Temperature:${temperature} &#8451;</li>
+                <li class="list-group-item">Humidity: ${humidity}%</li>
+                <li class="list-group-item">Wind Speed: ${windSpeed} MPH</li>
+            </ul>
+        </div>
       `);
+
 
     });
 

@@ -1,8 +1,22 @@
 * {
-    background-color: pink;
+    background-color:rgb(233, 139, 132)
+}
+
+header {
+    font-family: 'Courier New', Courier, monospace ;
+}
+
+h1 {
+    color: black;
 }
 
 .form {
     display: flex;
     justify-content: center;
 }
+
+.col-lg-12 {
+    display: flex;
+    justify-content: center;
+}
+
