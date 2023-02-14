@@ -51,5 +51,7 @@ h1 {
 
 #search-button:hover {
     transform: translateY(-5px);
+    background-color: white;
+    color: black;
 }
 
