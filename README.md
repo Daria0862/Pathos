@@ -19,6 +19,8 @@ Copy the hosted link address from the README, paste on the browser, click on the
 
 Here is the screenshot of what the form look like:
 
+! [alt text] (assets/Pathos.png)
+
 
 
 ## License
