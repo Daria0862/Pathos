@@ -164,8 +164,8 @@ async function songSelect() {
     const randomTrackIndex = Math.floor(Math.random() * tracks.length);
     const randomTrack = tracks[randomTrackIndex];
     const trackData = await APIController.getTrack(token, randomTrack.track.href);
-    console.log('Artist: ${trackData.artists[0].name}');
-    console.log('Song: ${trackData.name}')
+    console.log(`Artist: ${trackData.artists[0].name}`);
+    console.log(`Song: ${trackData.name}`)
     const card = `
       <div class="card mb-3" style="width: 540px;">
         <div class="row no-gutters">
