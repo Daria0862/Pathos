@@ -164,7 +164,7 @@ async function songSelect() {
     const trackData = await APIController.getTrack(token, randomTrack.track.href);
     console.log(trackData)
     const card = `
-      <div class="card mb-3" style="max-width: 540px;">
+      <div class="card mb-3" style="max-width: 250px;">
         <div class="row no-gutters">
           <div class="col-md-4">
             <img src="${trackData.album.images[0].url}" class="card-img" alt="Album Art">
