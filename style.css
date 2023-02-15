@@ -23,12 +23,10 @@ h1 {
 }
 
 
-#weatherCard, #weatherList {
-    border-radius: 25px;
+#weatherCard {
     padding: 20px;
     background: rgb(222, 198, 186, .5);
 }
-
 
 
 #today2 {
