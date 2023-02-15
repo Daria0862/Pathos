@@ -115,8 +115,8 @@ function getWeather(city) {
             <h4 class="text-left">${response.name} (${currentDate})  <img src="${icon}" /></h4>
             </div>
             <ul class="list-group list-group-flush" id="weatherList" >
-                <li class="list-group-item">Temperature: ${temperature} &#8451;</li>
-                <li class="list-group-item">Description: ${weather}</li>
+                <li class="list-group-item"> &#127777; ${temperature} &#8451;</li>
+                <li class="list-group-item">Description:${weather}</li>
                 
             </ul>
         </div>
