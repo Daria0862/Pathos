@@ -3,7 +3,7 @@ header {
 }
 
 body {
-    background-image: url("milky-way.jpg");
+    background-image: url("./assets/milky-way.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -56,29 +56,30 @@ h1 {
 body {
     background-position: center center;
     background-attachment: fixed;
-    background-repeat: no-repeat; background-size: cover;
-  }
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
-  @media (max-width: 480px) {
+@media (max-width: 480px) {
     body {
-        background-image: url("milky-way.jpg");
+        background-image: url("./assets/milky-way.jpg");
     }
 }
 
 @media (min-width: 481px) and (max-width: 1024px) {
     body {
-        background-image: url("milky-way.jpg");
+        background-image: url("./assets/milky-way.jpg");
     }
 }
 
 @media (min-width: 1025px) {
     body {
-	    background-image: url("milky-way.jpg");
-   }
+        background-image: url("./assets/milky-way.jpg");
+    }
 }
 
 
 ul li {
     text-align: center;
-   font-family: monospace;
-  }
+    font-family: monospace;
+}
