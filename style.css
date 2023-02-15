@@ -78,3 +78,9 @@ body {
 	    background-image: url("milky-way.jpg");
    }
 }
+
+
+ul li {
+    text-align: center;
+    font-family: monospace;
+    }
