@@ -17,7 +17,7 @@ The following APIs were used for this project:
 
 Copy the hosted link address from the README, paste on the browser, click on the "Enter a city" then type in your desired city you wish to go and finally click on the "Search" button.
 
-Here is the screenshot of what the form look like:
+Here is the screenshot of what the Pathos look like:
 
 ! [alt text] (assets/Pathos.png)
 
