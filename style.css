@@ -31,9 +31,6 @@ h1 {
 
 #today2 {
     display: none;
-    padding: 20px;
-    border-radius: 25px;
-    background: rgb(222, 198, 186, .5);
 }
 
 #search-button {
