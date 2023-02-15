@@ -1,3 +1,5 @@
+// All code for APIController is from user sammy007 on github
+
 const APIController = (function () {
 
     const clientId = '614d476329af4034b2a4806c49e5ec6b';
@@ -103,14 +105,14 @@ function getWeather(city) {
         temperature = temperature.toFixed(2);
         let humidity = response.main.humidity;
         let weather = response.weather[0].description;
-        console.log (weather);
-        console.log (response);
+        console.log(weather);
+        console.log(response);
 
 
         // Added card to hold the weather parameters
-        $("#today").empty();
-        $("#today").append(`
-        <div class="card" id="weatherCard" style="width: 18rem;>
+        const card = `
+       
+        <div class="card" id="weatherCard" style="width: 540px;>
             <div class="card-header header">
             <h4 class="text-left">${response.name} (${currentDate})  <img src="${icon}" /></h4>
             </div>
@@ -120,7 +122,12 @@ function getWeather(city) {
                 
             </ul>
         </div>
-      `);
+        `
+
+        $("#today").fadeOut(500, function () {
+            $(this).empty().append(card).fadeIn(500);
+        });
+
 
 
     });
@@ -135,18 +142,13 @@ $("#search-form").on("submit", function (event) {
     let city = $("#search-input").val().trim();
 
 
-    getWeather(city);
-    songSelect();
+    getWeather(city)
+    songSelect()
 
 
 
     $("#search-input").val("");
 });
-
-$(document).ready(function () {
-    getWeather("London, UK");
-});
-
 
 
 
@@ -162,9 +164,9 @@ async function songSelect() {
     const randomTrackIndex = Math.floor(Math.random() * tracks.length);
     const randomTrack = tracks[randomTrackIndex];
     const trackData = await APIController.getTrack(token, randomTrack.track.href);
-    console.log(trackData)
+
     const card = `
-      <div class="card mb-3" style="max-width: 250px;">
+      <div class="card mb-3" style="width: 540px;">
         <div class="row no-gutters">
           <div class="col-md-4">
             <img src="${trackData.album.images[0].url}" class="card-img" alt="Album Art">
@@ -179,5 +181,11 @@ async function songSelect() {
       </div>
     `;
 
-    $("#today2").html(card);
+    $("#today2").fadeOut(500, function () {
+        $(this).empty().append(card).fadeIn(500);
+    });
 }
+
+
+
+
