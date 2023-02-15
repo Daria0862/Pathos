@@ -1,3 +1,5 @@
+// All code for APIController is from user sammy007 on github
+
 const APIController = (function () {
 
     const clientId = '614d476329af4034b2a4806c49e5ec6b';
@@ -121,10 +123,10 @@ function getWeather(city) {
             </ul>
         </div>
         `
-      
-      $("#today").fadeOut(500, function() {
-        $(this).empty().append(card).fadeIn(500);
-      });
+
+        $("#today").fadeOut(500, function () {
+            $(this).empty().append(card).fadeIn(500);
+        });
 
 
 
@@ -148,9 +150,7 @@ $("#search-form").on("submit", function (event) {
     $("#search-input").val("");
 });
 
-// $(document).ready(function () {
-//     getWeather("London, UK");
-// });
+
 
 async function songSelect() {
     const token = await APIController.getToken();
@@ -164,7 +164,7 @@ async function songSelect() {
     const randomTrackIndex = Math.floor(Math.random() * tracks.length);
     const randomTrack = tracks[randomTrackIndex];
     const trackData = await APIController.getTrack(token, randomTrack.track.href);
-  
+
     const card = `
       <div class="card mb-3" style="width: 540px;">
         <div class="row no-gutters">
@@ -180,46 +180,12 @@ async function songSelect() {
         </div>
       </div>
     `;
-  
-    $("#today2").fadeOut(500, function() {
-      $(this).empty().append(card).fadeIn(500);
+
+    $("#today2").fadeOut(500, function () {
+        $(this).empty().append(card).fadeIn(500);
     });
-  }
-  
+}
 
 
 
-// async function songSelect() {
-//     const token = await APIController.getToken();
-//     const genres = await APIController.getGenres(token);
-//     const randomIndex = Math.floor(Math.random() * genres.length);
-//     const randomGenre = genres[randomIndex].id;
-//     const playlists = await APIController.getPlaylistByGenre(token, randomGenre);
-//     const randomPlaylistIndex = Math.floor(Math.random() * playlists.length);
-//     const randomPlaylist = playlists[randomPlaylistIndex];
-//     const tracks = await APIController.getTracks(token, randomPlaylist.tracks.href);
-//     const randomTrackIndex = Math.floor(Math.random() * tracks.length);
-//     const randomTrack = tracks[randomTrackIndex];
-//     const trackData = await APIController.getTrack(token, randomTrack.track.href);
-//     console.log(trackData)
-//     $("#today2").empty();
-//     $("#today2").append(`
-//       <div class="card mb-3 animated" style="max-width: 540px;">
-//         <div class="row no-gutters">
-//           <div class="col-md-4">
-//             <img src="${trackData.album.images[0].url}" class="card-img" alt="Album Art">
-//           </div>
-//           <div class="col-md-8">
-//             <div class="card-body">
-//               <h5 class="card-title">${trackData.name}</h5>
-//               <p class="card-text">${trackData.artists[0].name}</p>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     `);
 
-
-    
-// }
-// $(".card").hide().fadeIn(700);
